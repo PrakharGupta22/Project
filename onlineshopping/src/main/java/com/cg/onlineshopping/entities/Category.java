@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
-
+@Entity
 @Table(name = "category")
 /**
  * The Category program contains all the entities and constructor method that
@@ -16,7 +16,7 @@ import javax.persistence.*;
  * @since 2020-10-19
  */
 
-@Embeddable
+
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,8 +30,7 @@ public class Category implements Serializable {
 	 * @param catId        this is the catId for Category method
 	 * @param categoryName this is the categoryName for Category method
 	 */
-
-	
+    @Id
 	private String catId;
 
 	private String categoryName;

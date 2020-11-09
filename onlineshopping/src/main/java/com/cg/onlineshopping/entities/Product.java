@@ -62,7 +62,7 @@ public class Product implements Serializable {
 	@Column(name = "quantity")
 	private int quantity;
 
-	@Embedded
+	@ManyToOne(cascade = { CascadeType.ALL })
 	private Category category;
 
 	public Product() {
@@ -80,7 +80,8 @@ public class Product implements Serializable {
 		this.manufacturer = manufacturer;
 		this.quantity = quantity;
 		this.category = category;
-	}
+		}
+	
 
 	public Integer getProductId() {
 		return productId;

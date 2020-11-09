@@ -13,8 +13,8 @@ public class CreateProductRequest {
 	@Size(min = 2, max = 20)
 	private String productName;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
+	
 	private double price;
 
 	@NotBlank
@@ -33,12 +33,10 @@ public class CreateProductRequest {
 	@Size(min = 2, max = 20)
 	private String manufacturer;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
-	private int quantity;
+		private int quantity;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
+
 	private Category category;
 
 	

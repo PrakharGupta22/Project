@@ -27,7 +27,7 @@ public class ProductServiceImpl implements IProductService {
 
 	@Override
 	public List<Product> viewAllProducts() {
-		LOGGER.info("retreving all the address");
+		LOGGER.info("retreving all the products");
 		List<Product> products = new ArrayList<>();
 		repo.findAll().forEach(products::add);
 		return products;
@@ -36,7 +36,7 @@ public class ProductServiceImpl implements IProductService {
 	@Override
 	public Product addProduct(Product product) throws ProductAlreadyExistsException {
 		LOGGER.info("adding product for user with productId:{}", product.getProductId());
-		boolean exists=product.getProductId()!=0 && repo.existsById(product.getProductId());
+		boolean exists=product.getProductId()!=null && repo.existsById(product.getProductId());
 		if(exists) {
 			throw new ProductAlreadyExistsException(
 			String.format("address already exists for id= %d", product.getProductId()));

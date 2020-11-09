@@ -13,10 +13,10 @@ public class ProductDetails {
 	private int quantity;
 	private Category category;
 
-	public ProductDetails(Integer productId, String productName, double price, String color, String dimension,
+	public ProductDetails( Integer productId,String productName, double price, String color, String dimension,
 			String specification, String manufacturer, int quantity, Category category) {
 		super();
-		this.productId = productId;
+		this.productId=productId;
 		this.productName = productName;
 		this.price = price;
 		this.color = color;

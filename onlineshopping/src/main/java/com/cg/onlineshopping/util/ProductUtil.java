@@ -21,7 +21,7 @@ public class ProductUtil {
 	}
 
 	public ProductDetails toDetails(Product product) {
-		return new ProductDetails(product.getProductId(), product.getProductName(), product.getPrice(),
+		return new ProductDetails(product.getProductId(),product.getProductName(), product.getPrice(),
 				product.getColor(), product.getDimension(), product.getSpecification(), product.getManufacturer(), product.getQuantity() ,product.getCategory());
 		
 	}

@@ -8,7 +8,8 @@ import org.springframework.data.repository.query.Param;
 import com.cg.onlineshopping.entities.Product;
 
 public interface IProductRepository extends JpaRepository<Product, Integer>{
-	@Query("FROM Product WHERE catId=:catId")
+	@Query("FROM Product WHERE category.catId=:catId")
     List<Product> findByCatId(@Param("catId") String catId);
+	
 	
 }

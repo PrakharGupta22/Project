@@ -6,16 +6,14 @@ import javax.validation.constraints.Size;
 import com.cg.onlineshopping.entities.Category;
 
 public class UpdateProductRequest {
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
 	private Integer productId;
 
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String productName;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
 	private double price;
 
 	@NotBlank
@@ -34,12 +32,10 @@ public class UpdateProductRequest {
 	@Size(min = 2, max = 20)
 	private String manufacturer;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
 	private int quantity;
 
-	@NotBlank
-	@Size(min = 2, max = 20)
+	
 	private Category category;
 
 	public Integer getProductId() {
