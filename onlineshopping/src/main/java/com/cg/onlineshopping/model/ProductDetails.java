@@ -1,42 +1,31 @@
-package com.cg.onlineshopping.modal;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+package com.cg.onlineshopping.model;
 
 import com.cg.onlineshopping.entities.Category;
 
-public class UpdateProductRequest {
-	
+public class ProductDetails {
 	private Integer productId;
-
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String productName;
-
-	
 	private double price;
-
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String color;
-
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String dimension;
-
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String specification;
-
-	@NotBlank
-	@Size(min = 2, max = 20)
 	private String manufacturer;
-
-	
 	private int quantity;
-
-	
 	private Category category;
+
+	public ProductDetails( Integer productId,String productName, double price, String color, String dimension,
+			String specification, String manufacturer, int quantity, Category category) {
+		super();
+		this.productId=productId;
+		this.productName = productName;
+		this.price = price;
+		this.color = color;
+		this.dimension = dimension;
+		this.specification = specification;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+		this.category = category;
+	}
 
 	public Integer getProductId() {
 		return productId;
@@ -109,4 +98,5 @@ public class UpdateProductRequest {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.cg.onlineshopping.entities.Address;
-import com.cg.onlineshopping.modal.AddressDetails;
+import com.cg.onlineshopping.model.AddressDetails;
 
 @Component
 public class AddressUtil {

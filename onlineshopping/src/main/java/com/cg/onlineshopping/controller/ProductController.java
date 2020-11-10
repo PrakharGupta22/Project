@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineshopping.entities.Product;
 import com.cg.onlineshopping.exception.ProductAlreadyExistsException;
 import com.cg.onlineshopping.exception.ProductNotFoundException;
-import com.cg.onlineshopping.modal.CreateProductRequest;
-import com.cg.onlineshopping.modal.ProductDetails;
-import com.cg.onlineshopping.modal.UpdateProductRequest;
+import com.cg.onlineshopping.model.CreateProductRequest;
+import com.cg.onlineshopping.model.ProductDetails;
+import com.cg.onlineshopping.model.UpdateProductRequest;
 import com.cg.onlineshopping.service.IProductService;
 import com.cg.onlineshopping.util.ProductUtil;
 
@@ -73,20 +73,20 @@ public class ProductController {
 	}
 
 	@GetMapping("/get/id/{id}")
-	public ResponseEntity<ProductDetails> viewProduct(@PathVariable("id") int productId)
+	public ResponseEntity<ProductDetails> viewProduct(@PathVariable("id") Integer productId)
 			throws ProductNotFoundException {
 		try {
 			Product product = service.viewProduct(productId);
 			ProductDetails details = productUtil.toDetails(product);
 			return new ResponseEntity<>(details, HttpStatus.OK);
-		} catch (Exception e) {
+		} catch (ProductNotFoundException e) {
 			LOGGER.error("unable to view product for productId:{} errlog", productId, e);
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@GetMapping("/viewall")
-	public ResponseEntity<List<Product>> viewAllProducts() {
+	public ResponseEntity<List<Product>> viewAllProducts() throws Exception {
 		try {
 			return new ResponseEntity<>(service.viewAllProducts(), HttpStatus.OK);
 		} catch (Exception e) {
@@ -109,11 +109,15 @@ public class ProductController {
 	}
 	
 	@GetMapping("/viewProductByCategory/{catId}")
-    public ResponseEntity<List<ProductDetails>> viewProductByCategory(@PathVariable("catId") String catId)
+    public ResponseEntity<List<ProductDetails>> viewProductsByCategory(@PathVariable("catId") String catId)throws ProductNotFoundException 
     {
+			try {
         return new ResponseEntity<>(productUtil.toDetails(service.viewProductsByCategory(catId)), HttpStatus.OK);
+		} catch (ProductNotFoundException e) {
+			LOGGER.error("unable to find products with catId:{} errlog", catId, e);
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
     }
-	
 		
 	
 

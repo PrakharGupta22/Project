@@ -1,9 +1,10 @@
-package com.cg.onlineshopping.modal;
+package com.cg.onlineshopping.model;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class CreateAddressRequest {
+public class UpdateAddressRequest {
+	private int addressId;
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String streetNo;
@@ -13,18 +14,23 @@ public class CreateAddressRequest {
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String city;
-
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String state;
-
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String country;
-
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String pincode;
+
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
 
 	public String getStreetNo() {
 		return streetNo;

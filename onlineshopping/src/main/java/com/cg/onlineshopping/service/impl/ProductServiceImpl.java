@@ -26,7 +26,7 @@ public class ProductServiceImpl implements IProductService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductServiceImpl.class);
 
 	@Override
-	public List<Product> viewAllProducts() {
+	public List<Product> viewAllProducts() throws Exception {
 		LOGGER.info("retreving all the products");
 		List<Product> products = new ArrayList<>();
 		repo.findAll().forEach(products::add);
@@ -58,7 +58,7 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public Product viewProduct(int id) throws ProductNotFoundException {
+	public Product viewProduct(Integer id) throws ProductNotFoundException {
 		LOGGER.info("viewing product with productId:{}", id);
 		Optional<Product> optional = repo.findById(id);
 		if (!optional.isPresent())
@@ -68,17 +68,17 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public List<Product> viewProductsByCategory(String catId) {
+	public List<Product> viewProductsByCategory(String catId) throws ProductNotFoundException {
 		return repo.findByCatId(catId);
 		 
 		 }
 
 	@Override
-	public Product removeProduct(int productId) throws ProductNotFoundException {
+	public Product removeProduct(Integer productId) throws ProductNotFoundException {
 		LOGGER.info("removing product with productId: {}", productId);
 		Product deletedProduct = viewProduct(productId);
 		repo.delete(deletedProduct);
-		return deletedProduct;
+		return null;
 		
 		
 	}

@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.cg.onlineshopping.entities.Product;
-import com.cg.onlineshopping.modal.ProductDetails;
+import com.cg.onlineshopping.model.ProductDetails;
 
 @Component
 public class ProductUtil {

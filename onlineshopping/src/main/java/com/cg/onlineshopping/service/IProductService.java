@@ -7,11 +7,11 @@ import com.cg.onlineshopping.exception.ProductAlreadyExistsException;
 import com.cg.onlineshopping.exception.ProductNotFoundException;
 
 public interface IProductService {
- public List<Product> viewAllProducts();
+ public List<Product> viewAllProducts() throws Exception;
  public Product addProduct(Product product) throws ProductAlreadyExistsException;
  public Product updateProduct(Product product) throws ProductNotFoundException;
- public Product viewProduct(int id) throws ProductNotFoundException;
- public List<Product> viewProductsByCategory(String catId); 
- public Product removeProduct(int productId) throws ProductNotFoundException;
+ public Product viewProduct(Integer id) throws ProductNotFoundException;
+ public List<Product> viewProductsByCategory(String catId) throws ProductNotFoundException; 
+ public Product removeProduct(Integer productId) throws ProductNotFoundException;
 
 }

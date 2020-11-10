@@ -9,12 +9,12 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.cg.onlineshopping.entities.Category;
 import com.cg.onlineshopping.entities.Product;
@@ -23,8 +23,7 @@ import com.cg.onlineshopping.exception.ProductNotFoundException;
 import com.cg.onlineshopping.repository.IProductRepository;
 import com.cg.onlineshopping.service.impl.ProductServiceImpl;
 
-@ExtendWith(SpringExtension.class)
-
+@RunWith(MockitoJUnitRunner.Silent.class)
 @SpringBootTest
 public class ProductServiceImplTest {
 	@Autowired
@@ -57,7 +56,7 @@ public class ProductServiceImplTest {
 
 	}
 	@Test
-	void testViewAllProducts() {
+	void testViewAllProducts() throws Exception{
 
 		Category category1=new Category("101","Gaming");
 
@@ -74,7 +73,7 @@ public class ProductServiceImplTest {
 	}
 	
 	@Test
-	void testViewProductsByCategory() {
+	void testViewProductsByCategory() throws ProductNotFoundException{
 		Category category=new Category("101","Gaming");
 
 		Product product = new Product("Gaming Mouse",200.00,"black","10","mouse","msi",20,category);
@@ -99,7 +98,7 @@ public class ProductServiceImplTest {
 	}
 	
 	@Test
-	public void testDeleteProduct() {
+	public void testDeleteProduct() throws ProductNotFoundException {
 		Category category=new Category("101","Gaming");
 
 		Product product = new Product("Gaming Mouse",200.00,"black","10","mouse","msi",20,category);

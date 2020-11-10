@@ -1,21 +1,30 @@
-package com.cg.onlineshopping.modal;
+package com.cg.onlineshopping.model;
 
-public class AddressDetails {
-	private int addressId;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+public class CreateAddressRequest {
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String streetNo;
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String buildingName;
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String city;
+
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String state;
+
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String country;
+
+	@NotBlank
+	@Size(min = 2, max = 20)
 	private String pincode;
-
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
 
 	public String getStreetNo() {
 		return streetNo;
@@ -62,21 +71,6 @@ public class AddressDetails {
 	}
 
 	public void setPincode(String pincode) {
-		this.pincode = pincode;
-	}
-
-	public AddressDetails() {
-	}
-
-	public AddressDetails(int addressId, String streetNo, String buildingName, String city, String state,
-			String country, String pincode) {
-		super();
-		this.addressId = addressId;
-		this.streetNo = streetNo;
-		this.buildingName = buildingName;
-		this.city = city;
-		this.state = state;
-		this.country = country;
 		this.pincode = pincode;
 	}
 

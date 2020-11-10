@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineshopping.entities.Address;
 import com.cg.onlineshopping.exception.AddressAlreadyExistsException;
 import com.cg.onlineshopping.exception.AddressNotFoundException;
-import com.cg.onlineshopping.modal.AddressDetails;
-import com.cg.onlineshopping.modal.CreateAddressRequest;
-import com.cg.onlineshopping.modal.UpdateAddressRequest;
+import com.cg.onlineshopping.model.AddressDetails;
+import com.cg.onlineshopping.model.CreateAddressRequest;
+import com.cg.onlineshopping.model.UpdateAddressRequest;
 import com.cg.onlineshopping.service.IAddressService;
 import com.cg.onlineshopping.util.AddressUtil;
 
